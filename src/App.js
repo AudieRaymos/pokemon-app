@@ -24,10 +24,24 @@ useEffect(() => {
   return () => cancel()
 }, [currentPageUrl])
 
+function gotoNextPage() {
+  setCurrentPageUrl(nextPageUrl)
+}
+
+function gotoPrevPage() {
+  setCurrentPageUrl(prevPageUrl)
+}
+
 if (loading) return "Loading..."
   
   return (
+    <>
     <PokemonList pokemon={pokemon} />
+    <Pagination  
+      gotoNextPage={gotoNextPage}
+      gotoPrevPage={gotoPrevPage}
+    />
+    </>
   );
 }
 
