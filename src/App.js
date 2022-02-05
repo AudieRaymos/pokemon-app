@@ -14,7 +14,7 @@ useEffect(() => {
   setLoading(true)
   let cancel
   axios.get(currentPageUrl, {
-    cancelToken: new axios.CancleToken(c => cancel = c)
+    cancelToken: new axios.CancelToken(c => cancel = c)
   }).then(res => {
     setLoading(false)
     setNextPageUrl(res.data.next)
