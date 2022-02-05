@@ -4,7 +4,7 @@ import axios from 'axios'
 
 function App() {
   const [pokemon, setPokemon] = useState([])
-  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
+  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon/")
   const [nextPageUrl, setNextPageUrl] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(true)
@@ -17,7 +17,13 @@ useEffect(() => {
     setPrevPageUrl(res.data.previous)
     setPokemon(res.data.results.map(p => p.name))
   })
-}, [currentPageUrl])
+
+  return () => {
+
+  }
+}, ([currentPageUrl])
+
+if (loading) return "Loading..."
   
   return (
     <PokemonList pokemon={pokemon} />
