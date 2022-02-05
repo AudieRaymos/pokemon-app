@@ -40,7 +40,7 @@ if (loading) return "Loading..."
     <PokemonList pokemon={pokemon} />
     <Pagination  
       gotoNextPage={nextPageUrl ? gotoNextPage : null}
-      gotoPrevPage={PrevPageUrl ? gotoPrevPage : null}
+      gotoPrevPage={prevPageUrl ? gotoPrevPage : null}
     />
     </>
   );
